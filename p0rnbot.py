@@ -14,10 +14,6 @@ link_filter = filter_default
 
 
 try:
-    token_path = os.path.dirname( os.path.abspath( __file__ ) )+"/token.txt"
-    t = open(token_path, "r", encoding="utf-8")
-    token = t.read().split()[0]
-
     game = discord.Game("Welcome P0rn Server")
     bot = commands.Bot(command_prefix='~',Status=discord.Status.online,activity=game)
 
@@ -56,6 +52,7 @@ try:
                     break
         await bot.process_commands(message)
     
+    token = os.environ["BOT_TOKEN"]
     print("Token_key : ", token)
     # bot.loop.create_task(my_background_task())
     bot.run(token)
